@@ -186,3 +186,31 @@ hr {
   margin: 20px;
   right: 50px;
 }
+
+
+
+#searchResultHeading {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.searchResult {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.searchResult h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.searchResult p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 0;
+}
+

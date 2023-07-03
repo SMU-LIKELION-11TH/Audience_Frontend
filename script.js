@@ -97,7 +97,45 @@ var posts = [
              }
           })
     }
-  
+
+
+/*
+// 검색 결과
+function displaySearchResults(searchResults, searchText) {
+  var searchResultHeading = document.getElementById("searchResultHeading");
+  var searchResultsDiv = document.getElementById("searchResults");
+
+  searchResultsDiv.innerHTML = ""; 
+
+  if (searchResults.length > 0) {
+    searchResultHeading.textContent = '"' + searchText + '"에 대한 검색결과';
+    searchResultHeading.style.display = "block"; 
+
+    for (var i = 0; i < searchResults.length; i++) {
+      var result = searchResults[i];
+      var resultDiv = document.createElement("div");
+      resultDiv.classList.add("searchResult");
+
+      var titleElement = document.createElement("h3");
+      titleElement.textContent = result.title;
+
+      var contentElement = document.createElement("p");
+      contentElement.textContent = result.content;
+
+      resultDiv.appendChild(titleElement);
+      resultDiv.appendChild(contentElement);
+
+      searchResultsDiv.appendChild(resultDiv);
+    }
+  } else {
+    searchResultHeading.textContent = "검색 결과가 없습니다.";
+    searchResultHeading.style.display = "block"; 
+  }
+}
+
+displaySearchResults(searchResults, searchText);
+*/
+
 
 // 실시간으로 새로운 게시글을 받아와 화면에 추가
 function listenForNewPosts() {
