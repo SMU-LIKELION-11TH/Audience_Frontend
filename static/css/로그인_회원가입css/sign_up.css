@@ -1,0 +1,31 @@
+h1 {
+    text-align: center;
+}
+
+input, button {
+    border: none;
+}
+
+.choice_c_p {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15%;
+}
+
+.sign_up_c {
+    margin: 0 15px 0 0;
+    width: 278px;
+    height: 96px;
+    border-radius: 3px;
+    background: #FFC3C3;
+}
+
+.sign_up_p {
+    margin: 0 0 0 15px;
+    width: 278px;
+    height: 96px;
+    border-radius: 3px;
+    background: #FFC3C3;
+}
