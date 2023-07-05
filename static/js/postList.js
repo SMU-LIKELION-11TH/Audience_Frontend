@@ -19,11 +19,6 @@ var posts = [
         title: "네 번째 게시글 제목",
         content: "내용",
         views: 60
-    },
-    {
-        title: "다섯 번째 게시글 제목",
-        content: "내용",
-        views: 50
     }
   ];
   
@@ -40,12 +35,7 @@ var posts = [
     var postList = document.getElementById("postList");
     postList.innerHTML = ""; 
   
-    // 조회수 기준 내림차순 정렬
-    posts.sort(function(a, b) {
-      return b.views - a.views;
-    });
-  
-    for (var i = 0; i < 5 && i < posts.length; i++) {
+    for (var i = 0; i < 4 && i < posts.length; i++) {
       var post = posts[i];
       var postElement = document.createElement("div");
       postElement.classList.add("post");
@@ -99,70 +89,30 @@ var posts = [
     }
 
 
-/*
-// 검색 결과
-function displaySearchResults(searchResults, searchText) {
-  var searchResultHeading = document.getElementById("searchResultHeading");
-  var searchResultsDiv = document.getElementById("searchResults");
-
-  searchResultsDiv.innerHTML = ""; 
-
-  if (searchResults.length > 0) {
-    searchResultHeading.textContent = '"' + searchText + '"에 대한 검색결과';
-    searchResultHeading.style.display = "block"; 
-
-    for (var i = 0; i < searchResults.length; i++) {
-      var result = searchResults[i];
-      var resultDiv = document.createElement("div");
-      resultDiv.classList.add("searchResult");
-
-      var titleElement = document.createElement("h3");
-      titleElement.textContent = result.title;
-
-      var contentElement = document.createElement("p");
-      contentElement.textContent = result.content;
-
-      resultDiv.appendChild(titleElement);
-      resultDiv.appendChild(contentElement);
-
-      searchResultsDiv.appendChild(resultDiv);
+    function listenForNewPosts() {
+      setInterval(function() {
+        var newPost = {
+          title: "새로운 게시글 " + (posts.length + 1),
+          content: "내용",
+          views: Math.floor(Math.random() * 100)
+        };
+    
+        posts.unshift(newPost); 
+    
+        addNewPost(newPost); 
+    
+        if (posts.length > 5) {
+          var postList = document.getElementById("newPostContainer");
+          postList.removeChild(postList.lastChild);
+        }
+      }, 3000);
     }
-  } else {
-    searchResultHeading.textContent = "검색 결과가 없습니다.";
-    searchResultHeading.style.display = "block"; 
-  }
-}
-
-displaySearchResults(searchResults, searchText);
-*/
-
-
-// 실시간으로 새로운 게시글을 받아와 화면에 추가
-function listenForNewPosts() {
-    setInterval(function() {
-      var newPost = {
-        title: "새로운 게시글 " + (posts.length + 1),
-        content: "내용",
-        views: Math.floor(Math.random() * 100)
-      };
-  
-      posts.unshift(newPost); 
-  
-      addNewPost(newPost); 
-  
-      if (posts.length > 5) {
-        var postList = document.getElementById("newPostContainer");
-        postList.removeChild(postList.lastChild);
-      }
-    }, 3000);
-  }
-  
-  document.addEventListener("DOMContentLoaded", function() {
-    showPosts(posts);
-    searchPosts();
-    listenForNewPosts();
-  });
-  
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      showPosts(posts);
+      searchPosts();
+      listenForNewPosts();
+    });
 
 
 // 줄; 게시글 데이터 (예시)

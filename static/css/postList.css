@@ -7,11 +7,19 @@ h2 {
   margin-bottom: 30px;
 }
 
+.link {
+  color: black;
+}
+
+.link2 {
+  color: black;
+}
+
 .posting {
   font-weight: bold;
   font-size: 20px;
   color: black;
-  margin-left: 220px;
+  margin-left: 270px;
   margin-bottom: 10px;
 }
 
@@ -24,12 +32,12 @@ hr {
 
 .post {
     background-color: #ffffff;
-    padding: 100px;
+    padding: 110px;
     margin-top: 50px;
     margin-bottom: 50px;
-    margin-left: 30px;
+    margin-left: 40px;
     display: inline-block;
-    border: 1.5px solid black;
+    border: 1.2px solid black;
     cursor: pointer;
     position: relative;
 }
@@ -126,8 +134,9 @@ hr {
 }
   
 .linePost {
+  left: 120px;
   font-size: 15px;
-  padding: 5px;
+  padding: 2px;
   margin-bottom: 10px;
   position: relative;
 }
@@ -142,7 +151,7 @@ hr {
 .linePost-company {
   font-size: 15px;
   margin: 10px;
-  margin-left: 220px;
+  margin-left: 150px;
   position: relative;
 }
 
@@ -153,7 +162,7 @@ hr {
 }
 
 .linePost-views {
-  right: 220px;
+  right: 380px;
   position: absolute;
 }
 
@@ -164,11 +173,11 @@ hr {
 
 #linePostList {
   font-size: 15px;
-  margin: 50px 0; /* Apply 50px margin between hr and linePostList */
+  margin: 50px 0; 
 }
 
 .linePost:not(:last-child) {
-  margin-bottom: 10px; /* Apply 10px margin between each .linePost */
+  margin-bottom: 10px; 
 }
 
 
@@ -186,7 +195,6 @@ hr {
   margin: 20px;
   right: 50px;
 }
-
 
 
 #searchResultHeading {
@@ -214,3 +222,31 @@ hr {
   margin-bottom: 0;
 }
 
+
+.searchBoxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.searchBox {
+  font-size: 15px;
+  border: 1px solid #ffd1d1;
+  background-color: #ffdfdf;
+  padding: 10px 30px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.searchBox:hover {
+  background-color: rgb(255, 155, 171);
+  color: #ffffff;
+}
+
+.searchBox:focus {
+  background-color: rgb(255, 155, 171);
+  color: #ffffff;
+}
