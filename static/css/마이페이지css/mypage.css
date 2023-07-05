@@ -83,6 +83,7 @@ input {
 
 .mypage_1,
 .mypage_2 {
+    padding-top: 15px;
     width: 832px;
     height: 386px;
     border-radius: 10px;
