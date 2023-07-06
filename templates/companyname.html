@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="companyname.css">
+</head>
+<body>
+    <div class = "search_wrapper">
+      <div class = "mid_wrapper">
+      	<!-- 검색창 -->
+        <input type="text" id = "name" autocomplete="off" placeholder="회사명을 검색하세요">
+        <!-- 검색버튼 -->
+        <input type="button" id = "submit_button" value="🔍"> 
+      </div>
+      <!-- 추천창 -->
+      <div id="suggestion_box" class = "invisible">
+        <div id = suggested_items></div>
+      </div>
+    </div>
+  </body>
+  <script src="companyname.js"></script>
+</html>
