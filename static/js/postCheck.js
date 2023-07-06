@@ -86,21 +86,56 @@ submitButton.addEventListener('click', () => {
   const commentInput = document.getElementById('comment-input').value;
   
   if (commentInput.trim() !== '') {
-    // Create a new comment element
     const newComment = document.createElement('div');
     newComment.className = 'comment';
     
-    // Create a new comment text element
     const newCommentText = document.createElement('p');
     newCommentText.textContent = commentInput;
     
-    // Add the new comment text to the comment element
     newComment.appendChild(newCommentText);
     
-    // Add the new comment to the top of the comment container
     commentContainer.prepend(newComment);
     
-    // Clear the comment input field
     document.getElementById('comment-input').value = '';
   }
 });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const submitButton = document.getElementById('submit');
+  const commentContainer = document.querySelector('.commentContainer');
+  const commentInput = document.getElementById('comment-input');
+
+  submitButton.addEventListener('click', () => {
+    const commentContent = commentInput.value;
+
+    if (commentContent.trim() === '') {
+      return; 
+    }
+
+    const commentElement = document.createElement('div');
+    commentElement.classList.add('comment');
+    commentElement.textContent = commentContent;
+
+    const replyButton = document.createElement('button');
+    replyButton.classList.add('replyButton');
+    replyButton.textContent = '답글 달기';
+
+    const editButton = document.createElement('button');
+    editButton.classList.add('editButton');
+    editButton.textContent = '수정하기';
+
+    const reportButton = document.createElement('button');
+    reportButton.classList.add('reportButton');
+    reportButton.textContent = '신고하기';
+
+    commentElement.appendChild(replyButton);
+    commentElement.appendChild(editButton);
+    commentElement.appendChild(reportButton);
+    commentContainer.appendChild(commentElement);
+
+    commentInput.value = '';
+  });
+});
+

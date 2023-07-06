@@ -10,6 +10,7 @@
 }
 
 .contentText {
+  font-weight: bold;
   font-size: 23px;
   position: absolute;
   top: 94.5%;
@@ -38,6 +39,7 @@
 }
 
 .commentText {
+  font-weight: bold;
   font-size: 23px;
   position: absolute;
   top: 230%;
@@ -204,10 +206,14 @@
 }
 
 .infoImageBox {
+  margin-top: 10px;
   width: 150px;
-  height: 100px;
+  height: 90px;
   background-color: rgb(213, 213, 213);
-  margin-top: 5px;
+}
+
+.infoImageText {
+  font-size: 20px;
 }
 
 .infoImageBoxH2 {

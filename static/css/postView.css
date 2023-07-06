@@ -1,3 +1,7 @@
+a {
+  color: black;
+}
+
 .backg {
   width: 1000px;
   height: 2500px;
@@ -10,6 +14,7 @@
 }
 
 .contentText {
+  font-weight: bold;
   font-size: 23px;
   position: absolute;
   top: 94.5%;
@@ -24,6 +29,7 @@
 }
 
 .commentText {
+  font-weight: bold;
   font-size: 23px;
   position: absolute;
   top: 280%;
@@ -113,6 +119,7 @@
 }
 
 .rectText {
+  font-weight: bold;
   font-size: 22px;
   margin-top: 10px;
   margin-left: 220px;
@@ -129,12 +136,17 @@
 }
 
 .rectText2 {
+  color: black;
   font-size: 22px;
   margin-top: 10px;
   margin-left: 480px;
   color: #ffffff;
 }
 
+.rectText2link {
+  color: black;
+  text-decoration: none;
+}
 
 .infoBoxLineUp {
   width: 700px;
