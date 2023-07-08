@@ -7,7 +7,7 @@ body{
 
 
 .container {
-    min-height: 1600px;
+    min-height: 1750px;
     background-color: #FFE5E5;
     width: 1134.79px;
     height: 100%;
@@ -280,20 +280,22 @@ body{
     display: none;
   }
 
-#hashtag_text {
+  #hashtag_text {
     position: absolute;
     top: 1336.37px; 
     left: 229.5px; 
     width: 90px;
     height: 24px; 
-    font-size: 20px; 
-}
-
-.tag-container {
+    font-size: 20px;
+  }
+  
+  .tag-container {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; 
+    max-width: 700px; 
   }
+  
   
   .tag-button {
     margin: 10px;
@@ -315,7 +317,7 @@ body{
     width: 134px;
     height: 28px; 
   }
-
+  
   #tag-input {
     font-size: 20px;
     width: 134px;
@@ -325,7 +327,7 @@ body{
 
 #upload_btn {
     position: absolute;
-    top: 1457.85px; 
+    top: 1657.85px; 
     left: 535.2px; 
     background-color:#FFBDBD;
     color:black;
