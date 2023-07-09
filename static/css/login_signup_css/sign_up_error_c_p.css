@@ -91,7 +91,7 @@ input, button {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 0 3% 0 0;
+    margin: 0 3% 11% 0;
     width: 4rem;
     height: 2.5rem;
     border-radius: 3px;
@@ -119,7 +119,6 @@ input, button {
     color: red;  
 }
 
-.input_img,
 .input_career {
     width: 152px;
     height: 32px;
