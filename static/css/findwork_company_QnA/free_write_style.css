@@ -52,8 +52,8 @@ body{
 .upload-button {
   display: inline-block;
   position: absolute;
-  top: 436.77px; 
-  left: 655.19px; 
+  top: 124.62px; 
+  left: 1048px; 
   width: 140.03px;
   height: 23.37px; 
   background-color:#FFBDBD;
@@ -111,7 +111,7 @@ max-width: 700px;
 }
 
 
-.tag-button {
+.tag-input {
 margin: 10px;
 background-color: #FFBDBD;
 border: none;
@@ -122,6 +122,7 @@ left: 225.69px;
 width: 134px;
 height: 28px;
 font-size: 20px;
+text-align: center;
 }
 
 .input-container {

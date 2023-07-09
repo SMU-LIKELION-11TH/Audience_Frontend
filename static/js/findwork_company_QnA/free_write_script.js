@@ -37,7 +37,7 @@ function addTag() {
 
     tags.forEach(function(tag) {
       if (tagContainer.childElementCount < maxTags) {
-        createTagButton(tag);
+        createTagInput(tag);
       }
     });
 
@@ -45,32 +45,33 @@ function addTag() {
   }
 }
 
-function createTagButton(tag) {
-  var button = document.createElement("button");
-  button.innerHTML = "#" + tag;
-  button.className = "tag-button";
-  button.onclick = function() {
+function createTagInput(tag) {
+  var input = document.createElement("input");
+  input.type = "text";
+  input.value = "#" + tag;
+  input.className = "tag-input";
+  input.onclick = function() {
     var newTag = prompt("해시태그 수정:", tag);
     if (newTag !== null) {
-      button.innerHTML = newTag;
+      input.value = "#" + newTag;
+      adjustInputWidth(input); // 수정된 값에 따라 너비 조정
     }
   };
 
-  tagContainer.appendChild(button);
-  adjustButtonWidth(button);
+  tagContainer.appendChild(input);
+  adjustInputWidth(input);
 
   // 버튼 위치 제한
-  var lastButton = tagContainer.lastElementChild;
-  var leftPosition = lastButton.getBoundingClientRect().left;
-  if (leftPosition + lastButton.offsetWidth > 600) {
+  var lastInput = tagContainer.lastElementChild;
+  var leftPosition = lastInput.getBoundingClientRect().left;
+  if (leftPosition + lastInput.offsetWidth > 600) {
     tagContainer.style.flexWrap = "wrap";
-    button.style.marginTop = "10px";
+    input.style.marginTop = "10px";
   }
 }
 
-
-function adjustButtonWidth(button) {
-  var tagText = button.innerHTML;
+function adjustInputWidth(input) {
+  var tagText = input.value;
   var tempSpan = document.createElement("span");
   tempSpan.style.visibility = "hidden";
   tempSpan.style.whiteSpace = "nowrap";
@@ -78,10 +79,11 @@ function adjustButtonWidth(button) {
   document.body.appendChild(tempSpan);
 
   var width = tempSpan.offsetWidth * 1.4 + 10;
-  button.style.width = width + "px";
+  input.style.width = width + "px";
 
   document.body.removeChild(tempSpan);
 }
 
 document.getElementById("tag-input").addEventListener("keydown", handleKeyDown);
+
 

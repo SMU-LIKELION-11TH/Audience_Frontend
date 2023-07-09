@@ -52,8 +52,8 @@ body{
 .upload-button {
     display: inline-block;
     position: absolute;
-    top: 436.77px; 
-    left: 655.19px; 
+    top: 124.62px; 
+    left: 1048px; 
     width: 140.03px;
     height: 23.37px; 
     background-color:#FFBDBD;
@@ -114,6 +114,9 @@ body{
     height: 40px;
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #intern_btn {
@@ -127,6 +130,9 @@ body{
     height: 40px;
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #permanent_btn.active {
@@ -141,6 +147,9 @@ body{
     height: 40px; 
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #permanent_btn {
@@ -155,6 +164,9 @@ body{
     height: 40px; 
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #temporary_btn.active {
@@ -169,6 +181,9 @@ body{
     height: 40px; 
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #temporary_btn {
@@ -183,6 +198,9 @@ body{
     height: 40px; 
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .job_btn{
@@ -209,6 +227,9 @@ body{
     height: 40px;
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #newcomer_btn {
@@ -222,6 +243,9 @@ body{
     height: 40px;
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #experienced_btn.active {
@@ -236,6 +260,9 @@ body{
     height: 40px; 
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #experienced_btn {
@@ -250,6 +277,13 @@ body{
     height: 40px; 
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.career_btn{
+	text-align: center;
 }
 
 #num_recruiters_text {
@@ -378,7 +412,7 @@ body{
   }
   
   
-  .tag-button {
+  .tag-input {
     margin: 10px;
     background-color: #FFBDBD;
     border: none;
@@ -389,6 +423,7 @@ body{
     width: 134px;
     height: 28px;
     font-size: 20px;
+    text-align: center;
   }
   
   .input-container {
