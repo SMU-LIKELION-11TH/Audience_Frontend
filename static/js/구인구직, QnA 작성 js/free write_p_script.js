@@ -47,7 +47,7 @@ function addTag() {
 
 function createTagButton(tag) {
   var button = document.createElement("button");
-  button.innerHTML = "#"+tag;
+  button.innerHTML = "#" + tag;
   button.className = "tag-button";
   button.onclick = function() {
     var newTag = prompt("해시태그 수정:", tag);
@@ -57,6 +57,31 @@ function createTagButton(tag) {
   };
 
   tagContainer.appendChild(button);
+  adjustButtonWidth(button);
+
+  // 버튼 위치 제한
+  var lastButton = tagContainer.lastElementChild;
+  var leftPosition = lastButton.getBoundingClientRect().left;
+  if (leftPosition + lastButton.offsetWidth > 600) {
+    tagContainer.style.flexWrap = "wrap";
+    button.style.marginTop = "10px";
+  }
+}
+
+
+function adjustButtonWidth(button) {
+  var tagText = button.innerHTML;
+  var tempSpan = document.createElement("span");
+  tempSpan.style.visibility = "hidden";
+  tempSpan.style.whiteSpace = "nowrap";
+  tempSpan.innerHTML = tagText;
+  document.body.appendChild(tempSpan);
+
+  var width = tempSpan.offsetWidth * 1.4 + 10;
+  button.style.width = width + "px";
+
+  document.body.removeChild(tempSpan);
 }
 
 document.getElementById("tag-input").addEventListener("keydown", handleKeyDown);
+
