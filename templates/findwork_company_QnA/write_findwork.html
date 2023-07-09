@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="..\..\static\css\구인구직, QnA 작성 css\write_findwork_style.css">
+    <link rel="stylesheet" type="text/css" href="..\..\static\css\findwork_company_QnA\write_findwork_style.css">
 
 </head>
 <body>
@@ -15,24 +15,24 @@
             <textarea id="content" style="border:0 solid black" name="content" placeholder="내용을 입력해주세요"></textarea>
             <b id="job_condition_text">지원조건</b>
             <div class="job_btn">
-                <button class="intern_btn" id="intern_btn">인턴</button>
-                <button class="permanent_btn" id="permanent_btn">정규직</button>
-                <button class="temporary_btn" id="temporary_btn">비정규직</button>
+                <label class="intern_btn" id="intern_btn">인턴</label>
+                <label class="permanent_btn" id="permanent_btn">정규직</label>
+                <label class="temporary_btn" id="temporary_btn">비정규직</label>
             </div>
             
             <b id="company_name_text">회사 이름</b>
             <input type="text" style="border:0 solid black" id="company_name" name="company_name" placeholder="회사 검색하기" onclick="openNewWindow()">
 
             <b id="grade_text">평점</b>
-
+            <input type="number" name="star_number" id="star_number" style="display: none;">
             <div class="rating">
-                <span class="star" id="star_1" data-value="1">★</span>
-                <span class="star" id="star_2" data-value="2">★</span>
-                <span class="star" id="star_3" data-value="3">★</span>
-                <span class="star" id="star_4" data-value="4">★</span>
-                <span class="star" id="star_5" data-value="5">★</span>
+                <span class="star" id="star_1" data-value="1" onclick="setRating(1)">★</span>
+                <span class="star" id="star_2" data-value="2" onclick="setRating(2)">★</span>
+                <span class="star" id="star_3" data-value="3" onclick="setRating(3)">★</span>
+                <span class="star" id="star_4" data-value="4" onclick="setRating(4)">★</span>
+                <span class="star" id="star_5" data-value="5" onclick="setRating(5)">★</span>
             </div>
-
+            
             <div class="certification_photo">
                 <b id="certification_photo_text">인증사진</b>
 
@@ -53,5 +53,5 @@
             <input type="submit" id="upload_btn" value="업로드하기">
         </div>
     </form>
-    <script src="..\..\static\js\구인구직, QnA 작성 js\write_findwork_script.js"></script>
+    <script src="..\..\static\js\findwork_company_QnA\write_findwork_script.js"></script>
 </body>

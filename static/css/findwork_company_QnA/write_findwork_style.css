@@ -63,6 +63,9 @@ body{
     height: 40px;
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #intern_btn {
@@ -76,6 +79,9 @@ body{
     height: 40px;
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #permanent_btn.active {
@@ -90,6 +96,9 @@ body{
     height: 40px; 
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #permanent_btn {
@@ -104,6 +113,9 @@ body{
     height: 40px; 
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #temporary_btn.active {
@@ -118,6 +130,9 @@ body{
     height: 40px; 
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #temporary_btn {
@@ -132,6 +147,9 @@ body{
     height: 40px; 
     font-size: 20px; 
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .job_btn{
@@ -251,8 +269,8 @@ body{
 .upload-button {
     display: inline-block;
     position: absolute;
-    top: 1025.34px; 
-    left: 655.19px; 
+    top: 691.45px; 
+    left: 1048px; 
     width: 140.03px;
     height: 23.37px; 
     background-color:#FFBDBD;
@@ -292,12 +310,11 @@ body{
   .tag-container {
     position: relative;
     display: flex;
-    flex-wrap: nowrap; 
-    max-width: 700px; 
+    flex-wrap: nowrap;
+    max-width: 700px;
   }
   
-  
-  .tag-button {
+  .tag-input {
     margin: 10px;
     background-color: #FFBDBD;
     border: none;
@@ -305,9 +322,10 @@ body{
     position: relative;
     top: 1363.87px; 
     left: 225.69px;
-    width: 134px;
+    width: auto; /* 자동으로 크기 조정 */
     height: 28px;
     font-size: 20px;
+    text-align: center;
   }
   
   .input-container {
@@ -315,7 +333,7 @@ body{
     top: 1375.87px; 
     left: 225.69px;
     width: 134px;
-    height: 28px; 
+    height: 28px;
   }
   
   #tag-input {
@@ -323,6 +341,7 @@ body{
     width: 134px;
     border: none;
   }
+  
   
 
 #upload_btn {
