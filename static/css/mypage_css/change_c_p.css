@@ -107,6 +107,12 @@ input, button {
     justify-content: start;
 }
 
+#old_gender_label_1,
+#old_gender_label_2,
+#old_gender_label_3 {
+    margin: 0 3% 0 0;
+}
+
 .interest_table {
     display: unset;
     display: grid;
