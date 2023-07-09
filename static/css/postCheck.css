@@ -1,12 +1,124 @@
+a {
+  color: black;
+}
+
+
+@media (max-width: 768px) {
+  .backg {
+    width: 80%;
+    height: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    position: relative;
+  }
+
+  .infoBox2 {
+    top: 50%;
+    left: 101%;
+    position: absolute;
+  }
+
+  .infoBoxLineMiddle {
+    top: 52.5%;
+    left: 101%;
+  }
+
+  .badButton {
+    top: 205%;
+    left: 103%;
+  }
+
+  .goodButton {
+    top: 205%;
+    left: 80%;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .backg {
+    width: 60%;
+    height: auto;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    position: relative;
+  }
+
+  .infoBox2 {
+    top: 50%;
+    left: 75.5%;
+    position: absolute;
+  }
+
+  .infoBoxLineMiddle {
+    top: 52.5%;
+    left: 75.5%;
+  }
+
+  .badButton {
+    top: 205%;
+    left: 77.5%;
+  }
+
+  .goodButton {
+    top: 205%;
+    left: 60.5%;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .backg {
+    width: 50%;
+    height: auto;
+    margin-left: 270px;
+    margin-right: 270px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    position: relative;
+  }
+
+  .infoBox2 {
+    top: 50%;
+    left: 51%;
+    position: absolute;
+  }
+
+  .infoBoxLineMiddle {
+    top: 52.5%;
+    left: 51%;
+  }
+
+  .badButton {
+    top: 205%;
+    left: 53%;
+  }
+
+  .goodButton {
+    top: 205%;
+    left: 43%;
+  }
+}
+
+
+
+/*////////////////////////////////////////////*/
+
 .backg {
   width: 1000px;
   height: 2000px;
   background-color: rgb(247, 220, 225);
+  /*
   margin-left: 270px;
   margin-right: 270px;
   margin-top: 100px;
   margin-bottom: 100px;
   position: relative;
+  */
 }
 
 .contentText {
@@ -69,7 +181,10 @@
   text-align: center;
 }
 
-.report {
+.reportText {
+  background-color: transparent; 
+  border: none; 
+  padding: 0; 
   font-size: 16px;
   text-underline-offset: 2px;
   color: rgb(248, 74, 74);
@@ -78,6 +193,33 @@
   text-decoration: underline;
   position: absolute;
 }
+
+.modifyText {
+  background-color: transparent; 
+  border: none; 
+  padding: 0; 
+  font-size: 16px;
+  text-underline-offset: 2px;
+  color: rgb(0, 0, 0);
+  top: 25%;
+  left: 72.3%;
+  text-decoration: underline;
+  position: absolute;
+}
+
+.deleteText {
+  background-color: transparent; 
+  border: none; 
+  padding: 0; 
+  font-size: 16px;
+  text-underline-offset: 2px;
+  color: rgb(0, 0, 0);
+  top: 21%;
+  left: 72.3%;
+  text-decoration: underline;
+  position: absolute;
+}
+
 
 .views {
   font-size: 18px;
@@ -97,6 +239,32 @@
   position: absolute;
   border-radius: 5px;
 }
+
+.rectText1 {
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 10px;
+  margin-left: 220px;
+  color: #ffffff;
+}
+
+.rectMiddle {
+  width: 2px;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  top: 10%;
+  left: 49%;
+  position: absolute;
+}
+
+.rectText2 {
+  color: black;
+  font-size: 22px;
+  margin-top: -35px;
+  margin-left: 480px;
+  position: absolute;
+}
+
 
 .infoBoxLineUp {
   width: 700px;
@@ -120,8 +288,10 @@
   width: 2px;
   height: 220px;
   background-color: rgb(223, 179, 179);
+  /*
   top: 52.5%;
   left: 51%;
+  */
   position: absolute;
 }
 
@@ -138,8 +308,10 @@
   width: 350px;
   height: 250px;
   background-color: rgb(247, 239, 239);
+  /*
   top: 50%;
   left: 51%;
+  */
   position: absolute;
 }
 
@@ -172,7 +344,7 @@
 }
  
 .star-rating label {
-  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-fill-color: transparent; 
   -webkit-text-stroke-width: 1.3px;
   -webkit-text-stroke-color: #2b2a29;
   cursor: pointer;
@@ -185,6 +357,10 @@
 .star-rating label:hover,
 .star-rating label:hover ~ label {
   -webkit-text-fill-color: #fff58c;
+}
+
+.star-rating .selected {
+  -webkit-text-fill-color: gold;
 }
 
 .infoHashtag {
@@ -290,8 +466,10 @@
 .goodButton {
   width: 100px;
   height: 100px;
+  /*
   top: 205%;
   left: 43%;
+  */
   background-color: rgb(255, 255, 255);
   border: 2px solid rgb(236, 143, 143);
   border-radius: 50%;
@@ -306,8 +484,10 @@
 .badButton {
   width: 100px;
   height: 100px;
+  /*
   top: 205%;
   left: 53%;
+  */
   background-color: rgb(255, 255, 255);
   border: 2px solid rgb(236, 143, 143);
   border-radius: 50%;
@@ -327,7 +507,7 @@
   top: 235%;
   left: 28%;
   position: absolute;
-}
+} 
 
 .commentBoxUp {
   width: 700px;
@@ -497,15 +677,75 @@
 }
 
 
-.commentContainer {
-  margin-top: 20px;
-}
 
-.comment {
-  font-size: 25px;
-  padding: 10px;
-  margin-top: 10px;
-  margin-left: 180px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
+.comment-container {
+    margin-top: 20px;
+  }
+  
+  .comment-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .comment-input-container {
+    display: flex;
+    margin-bottom: 10px;
+    position: absolute;
+    top: 60%;
+    left: 7%;
+  }
+  
+  #comment-input {
+    width: 500px;
+    max-height: 5em;
+    min-height: 5em;
+  }
+  
+  #comment-submit {
+    width: 90px;
+    padding: 10px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: rgb(242, 173, 158);
+  }
+  
+  .comment {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .comment-options {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+  }
+  
+  .comment-options button {
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: none;
+    border: none;
+
+  }
+
+  .comment-list {
+    margin-bottom: 10px;
+    position: absolute;
+    top: 10%;
+    left: 7%;
+  }
+  
+
+  .commentContainer {
+    margin-top: 20px;
+  }
+
+  .comment-options button.delete-button {
+    color: red;
+  }
+
+  
+
+  

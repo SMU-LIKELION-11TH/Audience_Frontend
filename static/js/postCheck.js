@@ -1,34 +1,45 @@
-let isLiked = false;
+// 별점
+const starRating = document.querySelector('.star-rating');
+const starInputs = starRating.querySelectorAll('input');
+
+starInputs.forEach((input) => {
+  input.addEventListener('click', () => {
+    starInputs.forEach((input) => {
+      input.disabled = true;
+    });
+  });
+});
+
+
+// 좋아요/싫어요
+let likeClicked = false;
+let notLikeClicked = false;
 
 function toggleLike() {
-  const button = document.querySelector(".goodButton");
-
-  if (isLiked) {
-    button.classList.remove("clicked");
+  if (!likeClicked) {
+    likeClicked = true;
+    if (notLikeClicked) {
+      notLikeClicked = false;
+    }
   } else {
-    button.classList.add("clicked");
+    likeClicked = false;
   }
-
-  isLiked = !isLiked;
 }
-
-
-
-let isNotLiked = false;
 
 function toggleNotLike() {
-  const button = document.querySelector(".badButton");
-
-  if (isNotLiked) {
-    button.classList.remove("clicked");
+  if (!notLikeClicked) {
+    notLikeClicked = true;
+    if (likeClicked) {
+      likeClicked = false;
+    }
   } else {
-    button.classList.add("clicked");
+    notLikeClicked = false;
   }
-
-  isNotLiked = !isNotLiked;
 }
 
 
+
+/*
 // 답글 달기
 const replyButton = document.querySelector('.commentOfComment');
 const replyForm = document.querySelector('.replyForm');
@@ -36,30 +47,10 @@ const replyForm = document.querySelector('.replyForm');
 replyButton.addEventListener('click', () => {
   replyForm.style.display = 'block';
 });
-
-
-
-// 신고하기 (댓글)
-
-const reportButton = document.querySelector('.commentReport');
-const reportMenu = document.querySelector('.reportMenu');
-
-reportButton.addEventListener('click', () => {
-  reportMenu.style.display = 'block';
-});
-
-const reportSubmitButton = document.getElementById('report-submit');
-reportSubmitButton.addEventListener('click', () => {
-  const reportReason = document.getElementById('reportReason').value;
-
-  console.log('신고 이유:', reportReason);
-
-  reportMenu.style.display = 'none';
-});
-
+*/
 
 // 신고하기 (게시글)
-const reportButton2 = document.querySelector('.report');
+const reportButton2 = document.querySelector('.reportText');
 const reportMenu2 = document.querySelector('.reportMenu2');
 
 reportButton2.addEventListener('click', () => {
@@ -79,63 +70,122 @@ reportSubmitButton2.addEventListener('click', () => {
 
 
 // 댓글 달기
-const submitButton = document.getElementById('submit');
-const commentContainer = document.querySelector('.commentContainer');
-
-submitButton.addEventListener('click', () => {
-  const commentInput = document.getElementById('comment-input').value;
+document.addEventListener("DOMContentLoaded", function () {
+    const commentList = document.getElementById("comment-list");
+    const commentInput = document.getElementById("comment-input");
+    const commentSubmit = document.getElementById("comment-submit");
   
-  if (commentInput.trim() !== '') {
-    const newComment = document.createElement('div');
-    newComment.className = 'comment';
-    
-    const newCommentText = document.createElement('p');
-    newCommentText.textContent = commentInput;
-    
-    newComment.appendChild(newCommentText);
-    
-    commentContainer.prepend(newComment);
-    
-    document.getElementById('comment-input').value = '';
-  }
-});
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const submitButton = document.getElementById('submit');
-  const commentContainer = document.querySelector('.commentContainer');
-  const commentInput = document.getElementById('comment-input');
-
-  submitButton.addEventListener('click', () => {
-    const commentContent = commentInput.value;
-
-    if (commentContent.trim() === '') {
-      return; 
+    commentSubmit.addEventListener("click", function () {
+      const commentContent = commentInput.value.trim();
+      if (commentContent !== "") {
+        const comment = createCommentElement(commentContent);
+        commentList.insertBefore(comment, commentList.firstChild);
+        commentInput.value = "";
+      }
+    });
+  
+    function createCommentElement(content) {
+      const comment = document.createElement("div");
+      comment.classList.add("comment");
+  
+      const commentContent = document.createElement("p");
+      commentContent.textContent = `[아이디] ${content}`;
+  
+      const commentOptions = document.createElement("div");
+      commentOptions.classList.add("comment-options");
+  
+      const replyButton = document.createElement("button");
+      replyButton.textContent = "대댓글 달기";
+      replyButton.addEventListener("click", function () {
+        const replyForm = createReplyForm(replyButton);
+        comment.appendChild(replyForm);
+        replyButton.style.display = "none"; // 대댓글 버튼 숨기기
+      });
+  
+      const editButton = document.createElement("button");
+      editButton.textContent = "수정하기";
+      editButton.addEventListener("click", function () {
+        const newContent = prompt("댓글을 수정하세요", commentContent.textContent);
+        if (newContent !== null) {
+          commentContent.textContent = `[아이디] ${newContent}`;
+        }
+      });
+  
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "삭제하기";
+      deleteButton.addEventListener("click", function () {
+        comment.remove();
+      });
+  
+      commentOptions.appendChild(replyButton);
+      commentOptions.appendChild(editButton);
+      commentOptions.appendChild(deleteButton);
+  
+      comment.appendChild(commentContent);
+      comment.appendChild(commentOptions);
+  
+      return comment;
     }
-
-    const commentElement = document.createElement('div');
-    commentElement.classList.add('comment');
-    commentElement.textContent = commentContent;
-
-    const replyButton = document.createElement('button');
-    replyButton.classList.add('replyButton');
-    replyButton.textContent = '답글 달기';
-
-    const editButton = document.createElement('button');
-    editButton.classList.add('editButton');
-    editButton.textContent = '수정하기';
-
-    const reportButton = document.createElement('button');
-    reportButton.classList.add('reportButton');
-    reportButton.textContent = '신고하기';
-
-    commentElement.appendChild(replyButton);
-    commentElement.appendChild(editButton);
-    commentElement.appendChild(reportButton);
-    commentContainer.appendChild(commentElement);
-
-    commentInput.value = '';
+  
+    function createReplyForm(replyButton) {
+      const replyForm = document.createElement("div");
+      replyForm.classList.add("reply-form");
+  
+      const replyInput = document.createElement("textarea");
+      replyInput.placeholder = "대댓글을 작성하세요";
+  
+      const replySubmit = document.createElement("button");
+      replySubmit.textContent = "SEND";
+      replySubmit.addEventListener("click", function () {
+        const replyContent = replyInput.value.trim();
+        if (replyContent !== "") {
+          const reply = createReplyElement(replyContent);
+          replyForm.parentNode.insertBefore(reply, replyForm.nextSibling);
+          replyForm.parentNode.removeChild(replyForm);
+          replyButton.style.display = "block"; // 대댓글 작성 후 대댓글 버튼 다시 보이기
+        }
+      });
+  
+      replyForm.appendChild(replyInput);
+      replyForm.appendChild(replySubmit);
+  
+      return replyForm;
+    }
+  
+    function createReplyElement(content) {
+      const reply = document.createElement("div");
+      reply.classList.add("reply");
+  
+      const replyContent = document.createElement("p");
+      replyContent.textContent = `└ RE: [아이디] ${content}`;
+  
+      const replyOptions = document.createElement("div");
+      replyOptions.classList.add("comment-options");
+  
+      const editButton = document.createElement("button");
+      editButton.textContent = "수정하기";
+      editButton.addEventListener("click", function () {
+        const newContent = prompt("대댓글을 수정하세요", replyContent.textContent);
+        if (newContent !== null) {
+          replyContent.textContent = `└ RE: [아이디] ${newContent}`;
+        }
+      });
+  
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "삭제하기";
+      deleteButton.addEventListener("click", function () {
+        reply.remove();
+      });
+  
+      replyOptions.appendChild(editButton);
+      replyOptions.appendChild(deleteButton);
+  
+      reply.appendChild(replyContent);
+      reply.appendChild(replyOptions);
+  
+      return reply;
+    }
   });
-});
+  
+  
 
