@@ -88,8 +88,11 @@ document.addEventListener("DOMContentLoaded", function () {
       const comment = document.createElement("div");
       comment.classList.add("comment");
   
+      const commentId = document.createElement("p");
+      commentId.textContent = "[아이디]";
+
       const commentContent = document.createElement("p");
-      commentContent.textContent = `[아이디] ${content}`;
+      commentContent.textContent = `${content}`;
   
       const commentOptions = document.createElement("div");
       commentOptions.classList.add("comment-options");
@@ -107,20 +110,21 @@ document.addEventListener("DOMContentLoaded", function () {
       editButton.addEventListener("click", function () {
         const newContent = prompt("댓글을 수정하세요", commentContent.textContent);
         if (newContent !== null) {
-          commentContent.textContent = `[아이디] ${newContent}`;
+          commentContent.textContent = `${newContent}`;
         }
       });
   
-      const deleteButton = document.createElement("button");
-      deleteButton.textContent = "삭제하기";
+      const deleteButton = document.createElement("delete-button");
+      deleteButton.textContent = " 삭제하기";
       deleteButton.addEventListener("click", function () {
         comment.remove();
       });
-  
+
       commentOptions.appendChild(replyButton);
       commentOptions.appendChild(editButton);
       commentOptions.appendChild(deleteButton);
-  
+
+      comment.appendChild(commentId);
       comment.appendChild(commentContent);
       comment.appendChild(commentOptions);
   
@@ -156,8 +160,11 @@ document.addEventListener("DOMContentLoaded", function () {
       const reply = document.createElement("div");
       reply.classList.add("reply");
   
+      const replyRe = document.createElement("p");
+      replyRe.textContent = "└ RE: [아이디]";
+
       const replyContent = document.createElement("p");
-      replyContent.textContent = `└ RE: [아이디] ${content}`;
+      replyContent.textContent = `${content}`;
   
       const replyOptions = document.createElement("div");
       replyOptions.classList.add("comment-options");
@@ -167,19 +174,20 @@ document.addEventListener("DOMContentLoaded", function () {
       editButton.addEventListener("click", function () {
         const newContent = prompt("대댓글을 수정하세요", replyContent.textContent);
         if (newContent !== null) {
-          replyContent.textContent = `└ RE: [아이디] ${newContent}`;
+          replyContent.textContent = `${newContent}`;
         }
       });
   
-      const deleteButton = document.createElement("button");
-      deleteButton.textContent = "삭제하기";
+      const deleteButton = document.createElement("delete-button");
+      deleteButton.textContent = " 삭제하기";
       deleteButton.addEventListener("click", function () {
         reply.remove();
       });
   
       replyOptions.appendChild(editButton);
       replyOptions.appendChild(deleteButton);
-  
+
+      reply.appendChild(replyRe);
       reply.appendChild(replyContent);
       reply.appendChild(replyOptions);
   
@@ -187,5 +195,98 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   
-  
+/*
+  document.addEventListener("DOMContentLoaded", function () {
+    const commentList = document.getElementById("comment-list");
+    const commentSubmit = document.getElementById("comment-submit");
+    const commentBox = document.querySelector(".commentBox");
+    const commentBoxDown = document.querySelector(".commentBoxDown");
+    const backg = document.querySelector(".backg");
+    const commentInput = document.querySelector(".comment-input-container");
+    const commentDelete = document.querySelector("#delete-button");
 
+  
+    commentSubmit.addEventListener("click", function () {
+      commentBox.style.height = 300 + commentList.offsetHeight + "px";
+      commentBoxDown.style.top = 2050 + commentList.offsetHeight + "px";
+      backg.style.height = 2000 + commentList.offsetHeight + "px";
+      commentInput.style.top = 200 + commentList.offsetHeight + "px";
+    });
+  });
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    comment.remove();
+    commentDelete.addEventListener("click", function () {
+      const commentHeight = commentList.offsetHeight;
+    
+      commentBox.style.height = 300 + commentHeight + "px";
+      commentBoxDown.style.top = 2050 + commentHeight + "px";
+      backg.style.height = 2000 + commentHeight + "px";
+      commentInput.style.top = 200 + commentHeight + "px";
+    });
+  });   */
+  document.addEventListener("DOMContentLoaded", function () {
+    const commentList = document.getElementById("comment-list");
+    const commentSubmit = document.getElementById("comment-submit");
+    const commentBox = document.querySelector(".commentBox");
+    const commentBoxDown = document.querySelector(".commentBoxDown");
+    const backg = document.querySelector(".backg");
+    const commentInput = document.querySelector(".comment-input-container");
+  
+    commentSubmit.addEventListener("click", function () {
+      const commentHeight = commentList.offsetHeight;
+      const newCommentBoxHeight = 300 + commentHeight;
+  
+      commentBox.style.height = newCommentBoxHeight + "px";
+      commentBoxDown.style.top = 2050 + commentHeight + "px";
+      backg.style.height = 2000 + commentHeight + "px";
+      commentInput.style.top = 200 + commentHeight + "px";
+    });
+  
+    commentList.addEventListener("click", function (event) {
+      if (event.target.classList.contains("delete-button")) {
+        const comment = event.target.closest(".comment");
+        const commentHeight = comment.offsetHeight;
+  
+        comment.remove(); // 댓글 삭제
+  
+        const newCommentBoxHeight = parseInt(commentBox.style.height) - commentHeight;
+        commentBox.style.height = newCommentBoxHeight + "px";
+      }
+    });
+  });
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    const commentList = document.getElementById("comment-list");
+    const commentSubmit = document.getElementById("comment-submit");
+    const commentBox = document.querySelector(".commentBox");
+    const commentBoxDown = document.querySelector(".commentBoxDown");
+    const backg = document.querySelector(".backg");
+    const commentInput = document.querySelector(".comment-input-container");
+  
+    function adjustCommentBoxHeight() {
+      const commentHeight = commentList.offsetHeight;
+      const newCommentBoxHeight = 300 + commentHeight;
+  
+      commentBox.style.height = newCommentBoxHeight + "px";
+      commentBoxDown.style.top = 2050 + commentHeight + "px";
+      backg.style.height = 2000 + commentHeight + "px";
+      commentInput.style.top = 200 + commentHeight + "px";
+    }
+  
+    commentSubmit.addEventListener("click", function () {
+      adjustCommentBoxHeight();
+    });
+  
+    commentList.addEventListener("click", function (event) {
+      if (event.target.classList.contains("delete-button")) {
+        const comment = event.target.closest(".comment");
+        const commentHeight = comment.offsetHeight;
+  
+        comment.remove(); 
+  
+        adjustCommentBoxHeight();
+      }
+    });
+  });
+  
