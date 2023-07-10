@@ -54,8 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const comment = document.createElement("div");
     comment.classList.add("comment");
 
+    const commentId = document.createElement("p");
+    commentId.textContent = "[아이디]";
+
     const commentContent = document.createElement("p");
-    commentContent.textContent = `[아이디] ${content}`;
+    commentContent.textContent = `${content}`;
 
     const commentOptions = document.createElement("div");
     commentOptions.classList.add("comment-options");
@@ -73,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     editButton.addEventListener("click", function () {
       const newContent = prompt("댓글을 수정하세요", commentContent.textContent);
       if (newContent !== null) {
-        commentContent.textContent = `[아이디] ${newContent}`;
+        commentContent.textContent = `${newContent}`;
       }
     });
 
@@ -87,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     commentOptions.appendChild(editButton);
     commentOptions.appendChild(deleteButton);
 
+    comment.appendChild(commentId);
     comment.appendChild(commentContent);
     comment.appendChild(commentOptions);
 
@@ -122,8 +126,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const reply = document.createElement("div");
     reply.classList.add("reply");
 
+    const replyRe = document.createElement("p");
+    replyRe.textContent = "└ RE: [아이디]";
+
     const replyContent = document.createElement("p");
-    replyContent.textContent = `└ RE: [아이디] ${content}`;
+    replyContent.textContent = `${content}`;
 
     const replyOptions = document.createElement("div");
     replyOptions.classList.add("comment-options");
@@ -133,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
     editButton.addEventListener("click", function () {
       const newContent = prompt("대댓글을 수정하세요", replyContent.textContent);
       if (newContent !== null) {
-        replyContent.textContent = `└ RE: [아이디] ${newContent}`;
+        replyContent.textContent = `${newContent}`;
       }
     });
 
@@ -145,10 +152,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
     replyOptions.appendChild(editButton);
     replyOptions.appendChild(deleteButton);
-
+    
+    reply.appendChild(replyRe);
     reply.appendChild(replyContent);
     reply.appendChild(replyOptions);
 
     return reply;
   }
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const commentList = document.getElementById("comment-list");
+  const commentSubmit = document.getElementById("comment-submit");
+  const commentBox = document.querySelector(".commentBox");
+  const commentBoxDown = document.querySelector(".commentBoxDown");
+  const backg = document.querySelector(".backg");
+  const commentInput = document.querySelector(".comment-input-container");
+
+
+  commentSubmit.addEventListener("click", function () {
+    commentBox.style.height = 300 + commentList.offsetHeight + "px";
+    commentBoxDown.style.top = 2425 + commentList.offsetHeight + "px";
+    backg.style.height = 2500 + commentList.offsetHeight + "px";
+    commentInput.style.top = 200 + commentList.offsetHeight + "px";
+  });
+
+  // 삭제하기 버튼 클릭 이벤트 처리
+  commentList.addEventListener("click", function (event) {
+    if (event.target.classList.contains("delete-button")) {
+      const comment = event.target.closest(".comment");
+      const commentHeight = comment.offsetHeight;
+
+      commentBox.style.height = parseInt(commentBox.style.height) - commentHeight + "px";
+      commentBoxDown.style.top = parseInt(commentBoxDown.style.top) - commentHeight + "px";
+      backg.style.height = parseInt(backg.style.height) - commentHeight + "px";
+      commentInput.style.top = parseInt(commentInput.style.top) - commentHeight + "px";
+      }
+  });
+});
+
+
+
